@@ -13,7 +13,7 @@ const Form = () => {
 
   return (
     <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
+      <Header title="CREER UNE NOUVELLE FICHE" subtitle="Créer une fiche patient" />
 
       <Formik
         onSubmit={handleFormSubmit}

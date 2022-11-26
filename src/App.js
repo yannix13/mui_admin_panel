@@ -15,6 +15,22 @@ import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar";
 
+import Layout from './scenes/global/Layout';
+import Missing from "./components/Missing";
+import PersistLogin from './components/PersistLogin';
+import RequireAuth from './components/RequireAuth';
+import Unauthorized from './components/Unauthorized';
+import LoginApi from './api/LoginApi';
+
+import Accueil from './components/Accueil';
+import ExtLayout from './components/ExtLayout';
+
+const ROLES = {
+  "User": "2001",
+  "Editor": "1984",
+  "Admin": "5150"
+}
+
 function App() {
   const [theme, colorMode] = useMode();
 
@@ -22,27 +38,36 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <div className="app">
-          <div className="siebar__wrapper">
-            <Sidebar/>
-          </div>
-          <main className='content'>
-            <Topbar/>
-            <Routes>
-                <Route path='/' element={<Dashboard/>} />
-                <Route path='/team' element={<Team/>} />
-                <Route path='/contacts' element={<Contacts/>} />
-                <Route path='/invoices' element={<Invoices/>} />
-                <Route path='/form' element={<Form/>} />
-                <Route path='/bar' element={<Bar/>} />
-                <Route path='/pie' element={<Pie/>} />
-                <Route path='/line' element={<Line/>} />
-                <Route path='/faq' element={<FAQ/>} />
-                <Route path='/geography' element={<Geography/>} />
-                <Route path='/calendar' element={<Calendar/>} />
-            </Routes>
-          </main>
-        </div>
+          <Routes>
+            <Route path='/' element={<ExtLayout/>}>   
+                {/* Public Routes */}
+                <Route path='/login' element={<LoginApi/>}/>
+
+                  {/* We want to protect these routes */}
+                  <Route path='/' element={<Layout/>}>
+                    <Route path='/' element={<PersistLogin/>}>
+                        <Route path='/' element={<RequireAuth allowedRoles={[ROLES.User]}/>}>
+                          <Route path='/' element={<Dashboard/>} />
+                          <Route path='/team' element={<Team/>} />
+                          <Route path='/contacts' element={<Contacts/>} />
+                          <Route path='/invoices' element={<Invoices/>} />
+                          <Route path='/form' element={<Form/>} />
+                          <Route path='/bar' element={<Bar/>} />
+                          <Route path='/pie' element={<Pie/>} />
+                          <Route path='/line' element={<Line/>} />
+                          <Route path='/faq' element={<FAQ/>} />
+                          <Route path='/geography' element={<Geography/>} />
+                          <Route path='/calendar' element={<Calendar/>} /> 
+                          <Route path='/unauthorized' element={<Unauthorized/>}/>
+                        </Route>
+                    </Route>
+                  </Route>
+
+                  {/* Catch all */}
+                  <Route path='*' element={<Missing />}/>
+
+            </Route>
+          </Routes>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

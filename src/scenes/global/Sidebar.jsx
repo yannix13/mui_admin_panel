@@ -96,7 +96,7 @@ const Sidebar = () => {
                 </Box>
            
                 <Box textAlign="center">
-                  <Typography variant="h3" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>John Doe</Typography>
+                  <Typography variant="h3" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>Adam Walker</Typography>
                   <Typography variant="h5" color={colors.greenAccent[500]}>Medecin</Typography>
                 </Box>
               </Box>
@@ -114,7 +114,7 @@ const Sidebar = () => {
 
                 <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px"}} >Data</Typography>
                 <Item
-                  title="Manage Team"
+                  title="Gérer Equipe"
                   to="/team"
                   icon={<PeopleOutlinedIcon/>}
                   selected={selected}
@@ -128,7 +128,7 @@ const Sidebar = () => {
                   setSelected={setSelected}
                 />
                 <Item
-                  title="Invoices Balances"
+                  title="Avancement"
                   to="/invoices"
                   icon={<ReceiptOutlinedIcon/>}
                   selected={selected}
@@ -137,21 +137,21 @@ const Sidebar = () => {
 
                 <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px"}} >Pages</Typography>
                 <Item
-                  title="Profile Form"
+                  title="Créer Fiche"
                   to="/form"
                   icon={<PersonOutlinedIcon/>}
                   selected={selected}
                   setSelected={setSelected}
                 />
                 <Item
-                  title="Calendar"
+                  title="Calendrier"
                   to="/calendar"
                   icon={<CalendarTodayOutlinedIcon/>}
                   selected={selected}
                   setSelected={setSelected}
                 />
                 <Item
-                  title="FAQ Page"
+                  title="Mode d'emploi"
                   to="/faq"
                   icon={<HelpOutlinedIcon/>}
                   selected={selected}
