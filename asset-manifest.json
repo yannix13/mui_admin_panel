@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mui_admin_panel/static/css/main.f3f6faf2.css",
+    "main.js": "/mui_admin_panel/static/js/main.1e3b7a3a.js",
+    "index.html": "/mui_admin_panel/index.html",
+    "main.f3f6faf2.css.map": "/mui_admin_panel/static/css/main.f3f6faf2.css.map",
+    "main.1e3b7a3a.js.map": "/mui_admin_panel/static/js/main.1e3b7a3a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f3f6faf2.css",
+    "static/js/main.1e3b7a3a.js"
+  ]
+}
